@@ -35,4 +35,7 @@
   <sca:component xmi:id="_wHkCkHPxEeqN8f4JeILnbw" name="ComponentNewProcess" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_wHkCkXPxEeqN8f4JeILnbw" processName="testpro.module.NewProcess"/>
   </sca:component>
+  <sca:component xmi:id="_IOHy4HPyEeqN8f4JeILnbw" name="ComponentThirdCommitProc" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_IOHy4XPyEeqN8f4JeILnbw" processName="NewPackage.ThirdCommitProc"/>
+  </sca:component>
 </sca:composite>

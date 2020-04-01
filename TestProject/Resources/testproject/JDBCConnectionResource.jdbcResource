@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_MO0YcRc9EeqY9blZcfszaw" name="testproject.JDBCConnectionResource" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_MRCmABc9EeqY9blZcfszaw" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_MRCmARc9EeqY9blZcfszaw" username="apps" password="#!IaK6EYUWl24QO3/DTWtCN1vhjxQoRe0m">
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_MRD0IBc9EeqY9blZcfszaw" jdbcDriver="tibcosoftwareinc.jdbc.oracle.OracleDriver" dbURL="jdbc:tibcosoftwareinc:oracle://aabc2018c.appsassoc.com:1521;ServiceName=VIS"/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_NyugsP_PEemXbf44CY2GpA" targetNamespace="http://tns.tibco.com/bw/composite/TestProject" name="TestProject" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_j0NQIgIaEeqaO5jSdQedHw" name="testrest" promote="ComponenttestRest/testrest">
+    <sca:interface.wsdl xmi:id="_j0N3MQIaEeqaO5jSdQedHw" interface="http://xmlns.example.com/20191108165608PLT#wsdl.interface(testrest)" scaext:wsdlLocation="../Processes/testpro/module/testRest.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_j0OeQAIaEeqaO5jSdQedHw" name="RestService" path="/testrest" docBasePath="http://localhost:7777/TestProject" docResourcePath="testRest" basePath="/" connector="testproject.TestRest" structuredData="true" technologyVersion="2.0">
+      <operation xmi:id="_j0PsYAIaEeqaO5jSdQedHw" operationName="post" nickname="post-testrest" httpMethod="POST" responseStyle="element" requestStyle="element">
+        <clientFormat>xml</clientFormat>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>xml</clientRequestFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_j0QTcAIaEeqaO5jSdQedHw"/>
+      <advancedConfig xmi:id="_j0PFUAIaEeqaO5jSdQedHw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_j0PsYQIaEeqaO5jSdQedHw" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_Roa_4P_PEemXbf44CY2GpA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Roq3gP_PEemXbf44CY2GpA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_RowXEP_PEemXbf44CY2GpA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Ro6IEP_PEemXbf44CY2GpA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_RpBc0P_PEemXbf44CY2GpA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_RpJYoP_PEemXbf44CY2GpA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_QJRhUP_PEemXbf44CY2GpA" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_QJSvcP_PEemXbf44CY2GpA" processName="testpro.module.Process"/>
+  </sca:component>
+  <sca:component xmi:id="_j0MpEAIaEeqaO5jSdQedHw" name="ComponenttestRest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_j0MpEQIaEeqaO5jSdQedHw" processName="testpro.module.testRest"/>
+    <sca:service xmi:id="_j0NQIAIaEeqaO5jSdQedHw" name="testrest">
+      <sca:interface.wsdl xmi:id="_j0NQIQIaEeqaO5jSdQedHw" interface="http://xmlns.example.com/20191108165608PLT#wsdl.interface(testrest)" scaext:wsdlLocation="../Processes/testpro/module/testRest.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_-mgc8FR3Eeq2NtSE7RGkig" name="ComponentTestProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-mgc8VR3Eeq2NtSE7RGkig" processName="testpro.module.TestProcess"/>
+  </sca:component>
+  <sca:component xmi:id="_wHkCkHPxEeqN8f4JeILnbw" name="ComponentNewProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_wHkCkXPxEeqN8f4JeILnbw" processName="testpro.module.NewProcess"/>
+  </sca:component>
+  <sca:component xmi:id="_IOHy4HPyEeqN8f4JeILnbw" name="ComponentThirdCommitProc" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_IOHy4XPyEeqN8f4JeILnbw" processName="NewPackage.ThirdCommitProc"/>
+  </sca:component>
+</sca:composite>

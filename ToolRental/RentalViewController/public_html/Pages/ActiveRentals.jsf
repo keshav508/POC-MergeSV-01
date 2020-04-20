@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="ActiveRentals" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" id="gc2">
+                        <af:image source="/apps logo.png" id="i1"
+                                  inlineStyle="grid-column-align:center; table-layout:fixed; grid-column-sizing:20%;"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <af:spacer width="10"/>
+            <af:outputText value="OrderNumber:#{pageFlowScope.ViewRentalsBean.selectedOrder} #{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.customerName}"
+                           id="ot1" inlineStyle="font-size:x-large; font-weight:bolder; margin-left: 250.0px; font-family:Helvetica;"/>
+            <af:spacer height="20" id="s1"/>
+            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="200">
+                <f:facet name="first">
+                    <af:panelSplitter id="ps2" splitterPosition="600">
+                        <f:facet name="first">
+                            <af:panelGridLayout id="pgl3">
+                                <af:gridRow marginTop="5px" height="auto" id="gr5Head">
+                                    <af:gridCell marginStart="120px">
+                                        <af:outputText value="Billing Address" id="ot7"
+                                                       inlineStyle="font-size:large; font-weight:bolder; margin-left: 65px; font-family:Helvetica;"/>
+                                        <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                                            <af:gridRow marginTop="15px" height="auto" id="gr5">
+                                                <af:gridCell id="gc7" width="30%">
+                                                    <af:outputText value="Customer Street1" id="ot11"
+inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="15px" width="70%" marginEnd="5px" id="gc1">
+                                                    <af:outputLabel
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.addressLine1}"
+inlineStyle="font-family:Helvetica;"
+                                                                  id="it1"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr6">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc9">
+                                                    <af:outputText value="Customer Street2" id="ot2" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc10">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.addressLine2}"
+                                                                  id="it2"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr7">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc11">
+                                                    <af:outputText value="Customer City" id="ot31" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc12">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.city}"
+                                                                  id="it3"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr8">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc13">
+                                                    <af:outputText value="Customer State" id="ot41" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc14">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.state}"
+                                                                  id="it4"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr9">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc15">
+                                                    <af:outputText value="Customer Zip" id="ot51" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc16">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.zipCode}"
+                                                                  id="it5"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr10">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc17">
+                                                    <af:outputText value="Customer Country" id="ot61" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc18">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.billToAddress.country}"
+                                                                  id="it6"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGridLayout id="pgl3s">
+                                <af:gridRow marginTop="5px" height="auto" id="gr5Heads">
+                                    <af:gridCell marginStart="15px">
+                                        <af:outputText value="Shipping Address" id="ot7s"
+                                                       inlineStyle="font-size:large; font-weight:bolder; margin-left: 50px; font-family:Helvetica;"/>
+                                        <af:panelGridLayout id="pgl41" dimensionsFrom="parent">
+                                            <af:gridRow marginTop="15px" height="auto" id="gr5s">
+                                                <af:gridCell id="gcc7" width="30%">
+                                                    <af:outputText value="Customer Street1" id="ott1" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="15px" width="70%" marginEnd="5px" id="gc1s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.addressLine1}"
+                                                                  id="it1s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr6s">
+                                                <af:gridCell marginStart="5px" width="auto" id="gcc9">
+                                                    <af:outputText value="Customer Street2" id="ott2" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc10s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.addressLine2}"
+                                                                  id="it2s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr7s">
+                                                <af:gridCell marginStart="5px" width="auto" id="gcc11">
+                                                    <af:outputText value="Customer City" id="ott3" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc12s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.city}"
+                                                                  id="it3s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr8s">
+                                                <af:gridCell marginStart="5px" width="auto" id="gci13">
+                                                    <af:outputText value="Customer State" id="ott4" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc14s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.state}"
+                                                                  id="it4s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr9s">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc151">
+                                                    <af:outputText value="Customer Zip" id="ot511" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc16s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.zipCode}"
+                                                                  id="it5s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr10s">
+                                                <af:gridCell marginStart="5px" width="auto" id="gc171">
+                                                    <af:outputText value="Customer Country" id="ot6" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc18s">
+                                                    <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                                                  value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.shipToAddress.country}"
+                                                                  id="it6s"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGridLayout id="pgl1x">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="125px" width="15%" id="gc2x">
+                                <af:outputText value="Customer Agreement" id="ot21" inlineStyle="font-family:Helvetica;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="85%" marginEnd="5px" id="gc3">
+                                <af:outputLabel id="it10" inlineStyle="font-family:Helvetica;"
+                                              value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.customerAgreement}"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" id="gr2x">
+                            <af:gridCell marginStart="5px" width="auto" id="gc4">
+                                <af:outputText value="Rental Agreement End Date" id="ot3" inlineStyle="font-family:Helvetica;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc5">
+                                <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                              value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.contractExpDate}"
+                                              id="it7"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr3">
+                            <af:gridCell marginStart="5px" width="auto" id="gc6">
+                                <af:outputText value="Sales Rep" id="ot4" inlineStyle="font-family:Helvetica;"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc71">
+                                <af:outputLabel inlineStyle="font-family:Helvetica;"
+                                              value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.salesRepName}"
+                                              id="it9"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:panelSplitter>
+            <af:spacer height="40" width="20"/>
+            <af:outputText value="Equipment in the field" 
+                        id="ot9"
+                         inlineStyle="font-size:large; font-weight:bolder; margin-left: 170px; "/>
+             <af:spacer height="10" width="30"/>
+            <af:table var="row" rowBandingInterval="0" id="t1" width="450"
+                      value="#{pageFlowScope.ViewRentalsBean.activeRentalDtlsLst.activeRentalLineDtls}"
+                      rowSelection="multiple" autoHeightRows="10" inlineStyle="margin-left: 190px; margin-top: 20px;"
+                       binding="#{pageFlowScope.ViewRentalsBean.activeRentalLinesTblBnd}">
+                
+                <af:column sortable="false" headerText="Select" id="c4">
+                    <af:selectBooleanCheckbox id="sbc1"
+                                              value="#{row.isSelected}"/>
+                
+                </af:column>
+                <af:column sortable="false" headerText="Item Sku" id="c1" inlineStyle="width:5cm;">
+                    <af:outputText value="#{row.itemSku}" id="ot5"/>
+                </af:column>
+                <af:column sortable="false" headerText="Item Description" id="c2" inlineStyle="width:auto;">
+                    <af:outputText value="#{row.itemDesciption}" id="ottt6"/>
+                </af:column>
+                <af:column sortable="false" headerText="Serial Number" id="c3">
+                    <af:outputText value="#{row.serialNumber}" id="ot8"/>
+                </af:column>
+            </af:table>
+            <af:spacer height="30"/>
+            <af:panelGroupLayout id="pgl2" layout="horizontal" halign="end">
+           
+                <af:button text="Replace Selected" id="b1"
+                           action="#{pageFlowScope.ViewRentalsBean.replaceSelectedRentalLinesAction}"/>
+                <af:spacer width="20"/>
+                <af:button text="Cancel" id="b2" action="goBack"/>
+                <af:spacer width="50"/>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

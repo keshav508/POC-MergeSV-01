@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="ViewRentals">
+    <page>/Pages/ViewRentals.jsf</page>
+  </view>
+  <view id="ActiveRentals">
+    <page>/Pages/ActiveRentals.jsf</page>
+  </view>
+  <view id="PickOrder">
+    <page>/Pages/PickOrder.jsf</page>
+  </view>
+  <view id="CompleteRentals">
+    <page>/Pages/CompleteRental.jsf</page>
+  </view>
+  <view id="view1">
+    <page>/Pages/CompleteRental.jsf</page>
+  </view>
+  <control-flow-rule id="__3">
+    <from-activity-id>ViewRentals</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>ToActiveRentals</from-outcome>
+      <to-activity-id>ActiveRentals</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome>toPickOrder</from-outcome>
+      <to-activity-id>PickOrder</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__10">
+      <from-outcome>toCompleteRentals</from-outcome>
+      <to-activity-id>CompleteRentals</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__1">
+      <from-outcome>toRental</from-outcome>
+      <to-activity-id>view1</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__5">
+    <from-activity-id>ActiveRentals</from-activity-id>
+    <control-flow-case id="__6">
+      <from-outcome>goBack</from-outcome>
+      <to-activity-id>ViewRentals</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__8">
+    <from-activity-id>PickOrder</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome>goToViewRentals</from-outcome>
+      <to-activity-id>ViewRentals</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__11">
+    <from-activity-id>CompleteRentals</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome>goToViewRentals</from-outcome>
+      <to-activity-id>ViewRentals</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__13">
+    <from-activity-id>view1</from-activity-id>
+    <control-flow-case id="__14">
+      <from-outcome>toView</from-outcome>
+      <to-activity-id>ViewRentals</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__2">
+    <managed-bean-name>ViewRentalsBean</managed-bean-name>
+    <managed-bean-class>ManagedBeans.ViewRentalsBean</managed-bean-class>
+    <managed-bean-scope>pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="ViewRentals.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:panelSplitter id="ps1" splitterPosition="300" firstBorder="none" secondBorder="none"
+                                          collapsed="false" disabled="true">
+                            <f:facet name="first">
+                                <af:image source="/apps logo.png" id="i1"
+                                          inlineStyle="grid-column-align:center; table-layout:fixed; grid-column-sizing:20%;"/>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelStretchLayout id="psl1">
+                                    <f:facet name="bottom"/>
+                                    <f:facet name="center"/>
+                                    <f:facet name="start"/>
+                                    <f:facet name="end"/>
+                                    <f:facet name="top"/>
+                                </af:panelStretchLayout>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="center" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        
+                        <af:outputLabel value="Pending Rentals" id="ol1"
+                                        inlineStyle="grid-row-align:center; grid-column-align:center; caption-side:before; font-size:large;"/>
+                        <af:spacer width="645" height="10" id="s3"/>
+                        <af:button actionListener="#{bindings.Execute.execute}" text="Refresh"
+                                   disabled="#{!bindings.Execute.enabled}" id="b1"/>
+                        <af:table value="#{bindings.PendingRentalsVView11.collectionModel}" var="row"
+                                  rows="#{bindings.PendingRentalsVView11.rangeSize}"
+                                  emptyText="#{bindings.PendingRentalsVView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.PendingRentalsVView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.PendingRentalsVView11.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.PendingRentalsVView11.rangeSize}"
+                                  filterModel="#{bindings.PendingRentalsVView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.PendingRentalsVView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs" id="t2" maxClientRows="5"
+                                  autoHeightRows="6" contentDelivery="immediate" width="950" inlineStyle="height:94px;"
+                                  partialTriggers="::b1">
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.OrderHeader.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="Order Number" id="c1" inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:link text="#{row.bindings.OrderHeader.inputValue}" id="l1"
+                                         action="#{pageFlowScope.ViewRentalsBean.moveToPickOrderPage}"
+                                         actionListener="#{pageFlowScope.ViewRentalsBean.OrderNumberActionListener}"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.CustomerName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="CustomerName" id="c9" inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.CustomerName.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.CustomerName.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.CustomerName.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.CustomerName.displayWidth}"
+                                              maximumLength="#{bindings.PendingRentalsVView11.hints.CustomerName.precision}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.CustomerName.tooltip}"
+                                              id="it7">
+                                    <f:validator binding="#{row.bindings.CustomerName.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.Sku.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.PendingRentalsVView11.hints.Sku.label}"
+                                       id="c11" inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Sku.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.Sku.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.Sku.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.Sku.displayWidth}"
+                                              maximumLength="#{bindings.PendingRentalsVView11.hints.Sku.precision}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.Sku.tooltip}" id="it9">
+                                    <f:validator binding="#{row.bindings.Sku.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.NeedByDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.PendingRentalsVView11.hints.NeedByDate.label}" id="c12"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.PendingRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.NeedByDate.value}"
+                                                  id="id5">
+                                        <af:convertDateTime pattern="#{bindings.PendingRentalsVView11.hints.NeedByDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.NeedByDate.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.NeedByDate.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.NeedByDate.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.NeedByDate.displayWidth}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.NeedByDate.tooltip}"
+                                              id="id6">
+                                    <f:validator binding="#{row.bindings.NeedByDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.PendingRentalsVView11.hints.NeedByDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.label}"
+                                       id="c13" inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.PendingRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.EstimatedShipDate.value}"
+                                                  id="id7">
+                                        <af:convertDateTime pattern="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.EstimatedShipDate.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.displayWidth}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.tooltip}"
+                                              id="id8">
+                                    <f:validator binding="#{row.bindings.EstimatedShipDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.PendingRentalsVView11.hints.EstimatedShipDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.CityState.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.PendingRentalsVView11.hints.CityState.label}" id="c14"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.CityState.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.CityState.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.CityState.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.CityState.displayWidth}"
+                                              maximumLength="#{bindings.PendingRentalsVView11.hints.CityState.precision}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.CityState.tooltip}"
+                                              id="it10">
+                                    <f:validator binding="#{row.bindings.CityState.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.Salesrep.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.PendingRentalsVView11.hints.Salesrep.label}" id="c15"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Salesrep.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.Salesrep.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.Salesrep.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.Salesrep.displayWidth}"
+                                              maximumLength="#{bindings.PendingRentalsVView11.hints.Salesrep.precision}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.Salesrep.tooltip}"
+                                              id="it11">
+                                    <f:validator binding="#{row.bindings.Salesrep.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.PendingRentalsVView11.hints.Valid.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.PendingRentalsVView11.hints.Valid.label}" id="c16"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Valid.inputValue}"
+                                              label="#{bindings.PendingRentalsVView11.hints.Valid.label}"
+                                              required="#{bindings.PendingRentalsVView11.hints.Valid.mandatory}"
+                                              columns="#{bindings.PendingRentalsVView11.hints.Valid.displayWidth}"
+                                              maximumLength="#{bindings.PendingRentalsVView11.hints.Valid.precision}"
+                                              shortDesc="#{bindings.PendingRentalsVView11.hints.Valid.tooltip}"
+                                              id="it12">
+                                    <f:validator binding="#{row.bindings.Valid.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            
+                        </af:table>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:outputLabel value="Active Rentals" id="ol2" inlineStyle="font-size:large;"/>
+                        <af:spacer width="650" height="10" id="s4"/>
+                        <af:button actionListener="#{bindings.Execute1.execute}" text="Refresh"
+                                   disabled="#{!bindings.Execute1.enabled}" id="b2"/>
+                        <af:table value="#{bindings.ActiveRentalsVView11.collectionModel}" var="row"
+                                  rows="#{bindings.ActiveRentalsVView11.rangeSize}"
+                                  emptyText="#{bindings.ActiveRentalsVView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ActiveRentalsVView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ActiveRentalsVView11.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ActiveRentalsVView11.rangeSize}"
+                                  filterModel="#{bindings.ActiveRentalsVView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.ActiveRentalsVView1Query.processQuery}" filterVisible="true"
+                                  varStatus="vs" id="t5" width="950" autoHeightRows="6" contentDelivery="immediate"
+                                  maxClientRows="25" partialTriggers="::b2">
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.OrderNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="Order Number" id="c33"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:link text="#{row.bindings.OrderNumber.inputValue}" id="id11"
+                                         actionListener="#{pageFlowScope.ViewRentalsBean.OrderNumberActionListener}"
+                                         action="#{pageFlowScope.ViewRentalsBean.getActiveRentalsAction}">
+                                     
+                                </af:link>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.CustomerName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.CustomerName.label}" id="c34"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.CustomerName.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.CustomerName.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.CustomerName.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.CustomerName.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.CustomerName.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.CustomerName.tooltip}"
+                                              id="it23">
+                                    <f:validator binding="#{row.bindings.CustomerName.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.Sku.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ActiveRentalsVView11.hints.Sku.label}"
+                                       id="c36"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Sku.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.Sku.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.Sku.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.Sku.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.Sku.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.Sku.tooltip}" id="it25">
+                                    <f:validator binding="#{row.bindings.Sku.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.label}"
+                                       id="c37"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ActiveRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.RentalStartDate.value}"
+                                                  id="id17">
+                                        <af:convertDateTime pattern="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.RentalStartDate.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.displayWidth}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.tooltip}"
+                                              id="id18">
+                                    <f:validator binding="#{row.bindings.RentalStartDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ActiveRentalsVView11.hints.RentalStartDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.label}"
+                                       id="c38"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ActiveRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ExpectedReturnDate.value}"
+                                                  id="id19">
+                                        <af:convertDateTime pattern="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.ExpectedReturnDate.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.displayWidth}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.tooltip}"
+                                              id="id20">
+                                    <f:validator binding="#{row.bindings.ExpectedReturnDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ActiveRentalsVView11.hints.ExpectedReturnDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.CityState.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.CityState.label}" id="c39"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.CityState.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.CityState.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.CityState.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.CityState.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.CityState.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.CityState.tooltip}"
+                                              id="it26">
+                                    <f:validator binding="#{row.bindings.CityState.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.Salesrep.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.Salesrep.label}" id="c40"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Salesrep.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.Salesrep.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.Salesrep.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.Salesrep.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.Salesrep.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.Salesrep.tooltip}"
+                                              id="it27">
+                                    <f:validator binding="#{row.bindings.Salesrep.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.Valid.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.Valid.label}" id="c41"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.Valid.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.Valid.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.Valid.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.Valid.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.Valid.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.Valid.tooltip}"
+                                              id="it28">
+                                    <f:validator binding="#{row.bindings.Valid.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ActiveRentalsVView11.hints.SerialNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ActiveRentalsVView11.hints.SerialNumber.label}" id="c42"
+                                       inlineStyle="#{row.bindings.Valid.inputValue eq 'No' ? 'background-color:#FFFF00;' : ''}">
+                                <af:inputText value="#{row.bindings.SerialNumber.inputValue}"
+                                              label="#{bindings.ActiveRentalsVView11.hints.SerialNumber.label}"
+                                              required="#{bindings.ActiveRentalsVView11.hints.SerialNumber.mandatory}"
+                                              columns="#{bindings.ActiveRentalsVView11.hints.SerialNumber.displayWidth}"
+                                              maximumLength="#{bindings.ActiveRentalsVView11.hints.SerialNumber.precision}"
+                                              shortDesc="#{bindings.ActiveRentalsVView11.hints.SerialNumber.tooltip}"
+                                              id="it29">
+                                    <f:validator binding="#{row.bindings.SerialNumber.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:outputLabel value="Returned Rentals" id="ol3" inlineStyle="font-size:large;"/>
+                        <af:spacer width="630" height="10" id="s5"/>
+                       
+                        <af:button actionListener="#{bindings.Execute2.execute}" text="Refresh"
+                                   disabled="#{!bindings.Execute2.enabled}" id="b3"/>
+                        <af:table value="#{bindings.ReturnedRentalsVView11.collectionModel}" var="row"
+                                  rows="#{bindings.ReturnedRentalsVView11.rangeSize}"
+                                  emptyText="#{bindings.ReturnedRentalsVView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ReturnedRentalsVView11.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ReturnedRentalsVView11.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ReturnedRentalsVView11.rangeSize}"
+                                  filterModel="#{bindings.ReturnedRentalsVView1Query.queryDescriptor}"
+                                  queryListener="#{bindings.ReturnedRentalsVView1Query.processQuery}"
+                                  filterVisible="true" varStatus="vs" id="t4" width="950" autoHeightRows="6"
+                                  contentDelivery="immediate" maxClientRows="25" partialTriggers="::b3">
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.OrderNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="Order Number" id="c10">
+                               <af:link text="#{row.bindings.OrderNumber.inputValue}" id="l2"
+                                        actionListener="#{pageFlowScope.ViewRentalsBean.OrderNumberActionListener}"
+                                         action="#{pageFlowScope.ViewRentalsBean.toCompleteRentalsAction}">
+                                    
+                                </af:link>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.CustomerName.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.CustomerName.label}"
+                                       id="c27">
+                                <af:inputText value="#{row.bindings.CustomerName.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.CustomerName.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.CustomerName.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.CustomerName.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.CustomerName.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.CustomerName.tooltip}"
+                                              id="it13">
+                                    <f:validator binding="#{row.bindings.CustomerName.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.Sku.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.Sku.label}" id="c28">
+                                <af:inputText value="#{row.bindings.Sku.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.Sku.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.Sku.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.Sku.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.Sku.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.Sku.tooltip}"
+                                              id="it19">
+                                    <f:validator binding="#{row.bindings.Sku.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.label}"
+                                       id="c29">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ReturnedRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.RentalStartDate.value}"
+                                                  id="id13">
+                                        <af:convertDateTime pattern="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.RentalStartDate.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.displayWidth}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.tooltip}"
+                                              id="id14">
+                                    <f:validator binding="#{row.bindings.RentalStartDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ReturnedRentalsVView11.hints.RentalStartDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.label}" id="c30">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.ReturnedRentalsVView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ReturnDate.value}"
+                                                  id="id15">
+                                        <af:convertDateTime pattern="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:inputDate value="#{row.bindings.ReturnDate.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.displayWidth}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.tooltip}"
+                                              id="id16">
+                                    <f:validator binding="#{row.bindings.ReturnDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.ReturnedRentalsVView11.hints.ReturnDate.format}"/>
+                                </af:inputDate>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.CityState.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.CityState.label}" id="c31">
+                                <af:inputText value="#{row.bindings.CityState.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.CityState.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.CityState.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.CityState.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.CityState.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.CityState.tooltip}"
+                                              id="it20">
+                                    <f:validator binding="#{row.bindings.CityState.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.Salesrep.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.Salesrep.label}" id="c32">
+                                <af:inputText value="#{row.bindings.Salesrep.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.Salesrep.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.Salesrep.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.Salesrep.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.Salesrep.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.Salesrep.tooltip}"
+                                              id="it21">
+                                    <f:validator binding="#{row.bindings.Salesrep.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.Status.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.Status.label}" id="c26">
+                                <af:inputText value="#{row.bindings.Status.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.Status.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.Status.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.Status.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.Status.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.Status.tooltip}"
+                                              id="it8">
+                                    <f:validator binding="#{row.bindings.Status.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.label}"
+                                       id="c35">
+                                <af:inputText value="#{row.bindings.SerialNumber.inputValue}"
+                                              label="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.label}"
+                                              required="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.mandatory}"
+                                              columns="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.displayWidth}"
+                                              maximumLength="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.precision}"
+                                              shortDesc="#{bindings.ReturnedRentalsVView11.hints.SerialNumber.tooltip}"
+                                              id="it24">
+                                    <f:validator binding="#{row.bindings.SerialNumber.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

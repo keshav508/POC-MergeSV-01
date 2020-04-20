@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="ViewRentalsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PendingRentalsVView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="PendingRentalsVView1Iterator"/>
+    <searchRegion Binds="PendingRentalsVView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PendingRentalsVView1Query"/>
+    <iterator Binds="ReturnedRentalsVView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ReturnedRentalsVView1Iterator"/>
+    <searchRegion Binds="ReturnedRentalsVView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ReturnedRentalsVView1Query"/>
+    <iterator Binds="ActiveRentalsVView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ActiveRentalsVView1Iterator"/>
+    <searchRegion Binds="ActiveRentalsVView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ActiveRentalsVView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PendingRentalsVView1Iterator" id="PendingRentalsVView1">
+      <nodeDefinition DefName="model.PendingRentalsVView" Name="PendingRentalsVView10">
+        <AttrNames>
+          <Item Value="OrderHeader"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="NeedByDate"/>
+          <Item Value="EstimatedShipDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+          <Item Value="Valid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ReturnedRentalsVView1Iterator" id="ReturnedRentalsVView1">
+      <nodeDefinition DefName="model.ReturnedRentalsVView" Name="ReturnedRentalsVView10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="Status"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="RentalStartDate"/>
+          <Item Value="ReturnDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ActiveRentalsVView1Iterator" id="ActiveRentalsVView1">
+      <nodeDefinition DefName="model.ActiveRentalsVView" Name="ActiveRentalsVView10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="RentalStartDate"/>
+          <Item Value="ExpectedReturnDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+          <Item Value="Valid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ReturnedRentalsVView1Iterator" id="ReturnedRentalsVView11">
+      <nodeDefinition DefName="model.ReturnedRentalsVView" Name="ReturnedRentalsVView110">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="Status"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="RentalStartDate"/>
+          <Item Value="ReturnDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+          <Item Value="Valid"/>
+          <Item Value="Rental"/>
+          <Item Value="SerialNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ActiveRentalsVView1Iterator" id="ActiveRentalsVView11">
+      <nodeDefinition DefName="model.ActiveRentalsVView" Name="ActiveRentalsVView110">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="RentalStartDate"/>
+          <Item Value="ExpectedReturnDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+          <Item Value="Valid"/>
+          <Item Value="SerialNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PendingRentalsVView1Iterator" id="PendingRentalsVView11">
+      <nodeDefinition DefName="model.PendingRentalsVView" Name="PendingRentalsVView110">
+        <AttrNames>
+          <Item Value="OrderHeader"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Sku"/>
+          <Item Value="NeedByDate"/>
+          <Item Value="EstimatedShipDate"/>
+          <Item Value="CityState"/>
+          <Item Value="Salesrep"/>
+          <Item Value="Valid"/>
+          <Item Value="Rental"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

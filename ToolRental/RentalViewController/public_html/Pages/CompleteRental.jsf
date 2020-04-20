@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <af:document title="ReturnedRentals.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" id="gc2">
+                        <af:image source="/apps logo.png" id="i1"
+                                  inlineStyle="grid-column-align:center; table-layout:fixed; grid-column-sizing:20%;"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <af:spacer height="20"/>
+            <af:outputLabel value="Order Number:#{pageFlowScope.ViewRentalsBean.selectedOrder} #{pageFlowScope.ViewRentalsBean.returnRentalDtls.customerName} #{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.city} #{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.state}"
+                            id="ol1"
+                            inlineStyle="font-size:x-large; font-weight:bolder; margin-left: 200.0px; font-family:Helvetica;"/>
+            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="265">
+                <f:facet name="first">
+                    <af:panelSplitter id="ps2" splitterPosition="750" inlineStyle="border-bottom: solid #ABABAB 1.5px;">
+                        <f:facet name="first">
+                            <af:panelGridLayout id="pgl11" inlineStyle="border-right: solid #ABABAB 1.5px;">
+                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1"></af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="15px" height="auto" id="gr2x">
+                                    <af:gridCell marginStart="75px" width="50%" id="gc3">
+                                        <af:outputLabel value="Billing Address" id="ol5"
+                                                        inlineStyle="grid-row-align:center; grid-column-align:center; caption-side:before; font-size:large; font-weight:bold; margin-left: 35px; font-family:Helvetica;"/>
+                                        <af:panelGridLayout id="pgl4" dimensionsFrom="parent">
+                                            <af:gridRow marginTop="15px" height="auto" id="gr6">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc8">
+                                                    <af:outputLabel value="Customer Street 1" id="ol9"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc9">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.addressLine1}"
+                                                                    id="ol10" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr7">
+                                                <af:gridCell marginStart="5px" width="10%" id="gc10">
+                                                    <af:outputLabel value="Customer Street 2" id="o20"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="90%" id="gc11">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.addressLine2}"
+                                                                    id="ol11" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr8">
+                                                <af:gridCell marginStart="5px" width="10%" id="gc12">
+                                                    <af:outputLabel value="Customer City" id="o21"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="90%" id="gc13">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.city}"
+                                                                    id="ol12" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr9">
+                                                <af:gridCell marginStart="5px" width="10%" id="gc14">
+                                                    <af:outputLabel value="Customer State" id="o22"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="90%" id="gc15">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.state}"
+                                                                    id="ol13" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr10">
+                                                <af:gridCell marginStart="5px" width="10%" id="gc16">
+                                                    <af:outputLabel value="Customer Zip" id="o23"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="90%" id="gc17">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.billToAddress.zipCode}"
+                                                                    inlineStyle="font-family:Helvetica;" id="ol14"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4">
+                                        <af:outputLabel value="Shipping Address" id="ol6"
+                                                        inlineStyle="grid-row-align:center; grid-column-align:center; caption-side:before; font-size:large; font-weight:bold; margin-left: 35px; font-family:Helvetica;"/>
+                                        <af:panelGridLayout id="pgl5" dimensionsFrom="parent">
+                                            <af:gridRow marginTop="15px" height="auto" id="gr11">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc18">
+                                                    <af:outputLabel value="Customer Street 1" id="ol91"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc19">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.shipToAddress.addressLine1}"
+                                                                    id="ol15" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr12">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc20">
+                                                    <af:outputLabel value="Customer Street 2" id="ol16"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc21">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.shipToAddress.addressLine2}"
+                                                                    id="ol17" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr13">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc22">
+                                                    <af:outputLabel value="Customer City" id="ol18"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc23">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.shipToAddress.city}"
+                                                                    id="ol19" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr14">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc24">
+                                                    <af:outputLabel value="Customer State" id="ol20"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc25">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.shipToAddress.state}"
+                                                                    id="ol21" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr15">
+                                                <af:gridCell marginStart="5px" width="30%" id="gc26">
+                                                    <af:outputLabel value="Customer Zip" id="ol22"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="70%" id="gc27">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.shipToAddress.zipCode}"
+                                                                    id="ol23" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="15px" height="auto" marginBottom="30px" id="gr3">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc5">
+                                        <af:panelGridLayout id="pgl6" dimensionsFrom="parent">
+                                            <af:gridRow marginTop="5px" height="auto" id="gr16">
+                                                <af:gridCell marginStart="5px" width="40%" id="gc28">
+                                                    inlineStyle="font-family:Helvetica;"
+                                                    <af:outputLabel value="Current Rental Agreement ?" id="ol24"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc29">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.customerAgreement}"
+                                                                    id="ol25" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" id="gr17">
+                                                <af:gridCell marginStart="5px" width="40%" id="gc30">
+                                                    <af:outputLabel value="Rental Agreement End Date" id="ol26"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc31">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.contractExpDate}"
+                                                                    id="ol27" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                            <af:gridRow marginTop="10px" height="auto" marginBottom="5px" id="gr18">
+                                                <af:gridCell marginStart="5px" width="40%" id="gc32">
+                                                    <af:outputLabel value="Sales Rep" id="ol28"
+                                                                    inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="60%" marginEnd="5px" id="gc33">
+                                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.salesRepName}"
+                                                                    id="ol29" inlineStyle="font-family:Helvetica;"/>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6"/>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelGridLayout id="pgl7">
+                                <af:gridRow marginTop="5px" height="auto" id="gr19">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc34">
+                                        <af:outputLabel value="Other Items on Order" id="ol7"
+                                                        inlineStyle="grid-row-align:center; grid-column-align:center; font-family:Helvetica; caption-side:before; font-size:large; font-weight:bold;"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr20">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc35">
+                                        <af:table var="row" rowBandingInterval="0" rowSelection="single"
+                                                  filterVisible="true" varStatus="vs" id="t1" maxClientRows="5"
+                                                  autoHeightRows="6" contentDelivery="immediate" width="100%"
+                                                  inlineStyle="height:94px;"
+                                                  value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.outstandingItemsLst}">
+                                            <af:column headerText="SKU" id="c1">
+                                                <h:outputLabel value="#{row.itemSku}" id="ol2"
+                                                               inlineStyle="font-family:Helvetica;"/>
+                                            </af:column>
+                                            <af:column headerText="Serial Number" id="c2">
+                                                <h:outputLabel value="#{row.serialNumber}" id="ol3"
+                                                               inlineStyle="font-family:Helvetica;"/>
+                                            </af:column>
+                                            <af:column headerText="Ship Date" id="c3">
+                                                <h:outputLabel value="#{row.shipDate}" id="ol4"
+                                                               inlineStyle="font-family:Helvetica;"/>
+                                            </af:column>
+                                        </af:table>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelGroupLayout>
+                        <af:panelGridLayout id="pgl3">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                <af:gridCell marginStart="75px" width="100%" marginEnd="5px" id="gc7">
+                                    <af:outputLabel value="Rental Lines" id="ol8"
+                                                    inlineStyle="grid-row-align:center; grid-column-align:center; font-family:Helvetica; caption-side:before; font-size:large; font-weight:bold;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="25px" height="auto" marginBottom="5px" id="gr4">
+                                <af:gridCell id="gc2x" width="100%" marginEnd="5px">
+                                    <af:table var="row" rowBandingInterval="0" filterVisible="true" varStatus="vs"
+                                              id="t2" maxClientRows="5" autoHeightRows="6" contentDelivery="immediate"
+                                              width="100%" inlineStyle="height:94px;"
+                                              value="#{pageFlowScope.ViewRentalsBean.returnRentalDtls.returnRentalLineDtls}"
+                                              binding="#{pageFlowScope.ViewRentalsBean.returnRentalsTblBnd}"
+                                              styleClass="AFStretchWidth">
+                                        <af:column id="c11" width="70%">
+                                            <af:button text="Bill" id="b4"
+                                                       action="#{pageFlowScope.ViewRentalsBean.billReturnRentalAction}"
+                                                       partialTriggers="::t2"
+                                                       disabled="#{row.status ne 'Ready to Close'}">
+                                                <af:setPropertyListener from="#{row.rentalLineId}"
+                                                                        to="#{pageFlowScope.rentalLineId}"
+                                                                        type="action"/>
+                                            </af:button>
+                                        </af:column>
+                                        <af:column id="c10" width="70%">
+                                            <af:button text="Update" id="b1">
+                                                <af:setPropertyListener from="#{row.rentalLineId}"
+                                                                        to="#{pageFlowScope.rentalLineId1}"
+                                                                        type="action"/>
+                                                <af:clientAttribute name="rentalLineId" value="#{row.rentalLineId}"/>
+                                                <af:clientAttribute name="startDate" value="#{row.startDate}"/>
+                                                <af:clientAttribute name="returnDate" value="#{row.returnDate}"/>
+                                                <af:clientAttribute name="dailyRate" value="#{row.dailyRate}"/>
+                                                <af:clientAttribute name="damage" value="#{row.damage}"/>
+                                                <af:clientAttribute name="noOfDays" value="#{row.noOfDays}"/>
+                                                <af:clientAttribute name="rental" value="#{row.rental}"/>
+                                                <af:clientAttribute name="unbilledFreight"
+                                                                    value="#{row.unbilledFreight}"/>
+                                                <af:clientAttribute name="status" value="#{row.status}"/>
+                                                <af:showPopupBehavior popupId="::p1"/>
+                                            </af:button>
+                                        </af:column>
+                                        <af:column headerText="Status" id="c4" width="100%">
+                                            <af:outputLabel value="#{row.status}" id="ol30"
+                                                            inlineStyle="font-family:Helvetica;"></af:outputLabel>
+                                        </af:column>
+                                        <af:column headerText="Equipment" id="c5" width="100%">
+                                            <af:outputLabel value="#{row.itemSku}" id="ol31"
+                                                            inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column headerText="Serial Number" id="c6" width="100%">
+                                            <af:outputLabel value="#{row.serialNumber}" id="ol32"
+                                                            inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column headerText="Start Date" id="c7" width="100%">
+                                            <af:outputLabel value="#{row.startDate}" id="ol33"
+                                                            inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column headerText="Return Date" id="c8" width="100%">
+                                            <af:outputLabel value="#{row.returnDate}" id="ol34"
+                                                            inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column headerText="Daily Rate" id="c9" width="100%">
+                                            <af:outputLabel value="#{row.dailyRate}" id="ol35"
+                                                            inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column id="c15" headerText="No. of Days" width="100%">
+                                            <h:outputLabel value="#{row.noOfDays}" id="ol39"
+                                                           inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column id="c18" headerText="Rental" width="100%">
+                                            <h:outputLabel value="#{row.rental}" id="ol40"
+                                                           inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column id="c17" headerText="Unbilled Freight" width="100%">
+                                            <h:outputLabel value="#{row.unbilledFreight}" id="ol41"
+                                                           inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column id="c16" headerText="Damage" width="100%">
+                                            <h:outputLabel value="#{row.damage}" id="ol42"
+                                                           inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                        <af:column id="c19" headerText="Total" width="100%">
+                                            <h:outputLabel value="#{row.total}" id="ol43"
+                                                           inlineStyle="font-family:Helvetica;"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                        <af:panelGridLayout id="pgl2">
+                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr21">
+                                <af:gridCell marginStart="5px" width="100%" marginEnd="15px" id="gc36" halign="end">
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                    <af:button text="Cancel" id="b3" action="toView"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelSplitter>
+            <af:popup autoCancel="disabled" id="p1" contentDelivery="lazyUncached" launcherVar="source"
+                      eventContext="launcher" binding="#{pageFlowScope.ViewRentalsBean.renturnRentalsPopupBnd}">
+                <af:dialog id="d2" contentWidth="600" contentHeight="100" type="none"
+                           title="Update Order: #{pageFlowScope.ViewRentalsBean.selectedOrder}">
+                    <af:panelGroupLayout id="pg2l5" layout="vertical">
+                        <af:panelGridLayout id="pgl9">
+                            <af:gridRow marginTop="5px" height="auto" id="gr24">
+                                <af:gridCell width="20%" id="gc228"/>
+                                <af:gridCell width="20%" id="gc229"/>
+                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc111">
+                                    <af:outputLabel value="New Value" id="ot6" inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" id="gr111">
+                                <af:gridCell marginStart="5px" id="gc113" width="20%">
+                                    <af:inputText value="Start Date" id="ot8" disabled="true"
+                                                  inlineStyle="column-width:10px; font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" id="gc115" width="20%">
+                                    <af:outputLabel value="#{viewScope.startDate}" id="id1"
+                                                    inlineStyle="width:5%; font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" marginEnd="5px" id="gc117" width="20%">
+                                    <af:inputDate id="id2" autoSubmit="true"
+                                                  value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.startDate}"
+                                                  valueChangeListener="#{pageFlowScope.ViewRentalsBean.updateStartDatelVcl}"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" id="gr112">
+                                <af:gridCell marginStart="5px" width="20%" id="gc119">
+                                    <af:inputText value="Return Date" id="ot9" disabled="true"
+                                                  inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" id="gc120">
+                                    <af:outputLabel value="#{viewScope.returnDate}" id="id3"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc121">
+                                    <af:inputDate id="id4" inlineStyle="font-family:Helvetica;"
+                                                  value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.returnDate}"
+                                                  valueChangeListener="#{pageFlowScope.ViewRentalsBean.updateReturnDateVcl}"
+                                                  autoSubmit="true"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" id="gr113">
+                                <af:gridCell marginStart="5px" width="20%" id="gc122">
+                                    <af:inputText value="Daily Rate" id="ot10" disabled="true"
+                                                  inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" id="gc123">
+                                    <af:outputLabel value="#{viewScope.dailyRate}" id="it8"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc124">
+                                    <af:inputText id="it11" inlineStyle="font-family:Helvetica;"
+                                                  value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.dailyRate}"
+                                                  valueChangeListener="#{pageFlowScope.ViewRentalsBean.updateDailyRateVcl}"
+                                                  autoSubmit="true"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="auto" id="gr114">
+                                <af:gridCell marginStart="5px" width="20%" id="gc125">
+                                    <af:inputText value="Damage" id="ot11" disabled="true"
+                                                  inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" id="gc126">
+                                    <af:outputLabel value="#{viewScope.damage}" id="it12"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc127">
+                                    <af:inputText id="it13" inlineStyle="font-family:Helvetica;"
+                                                  value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.damage}"
+                                                  valueChangeListener="#{pageFlowScope.ViewRentalsBean.updateDamageVcl}"
+                                                  autoSubmit="true"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow id="gr22" marginTop="5px">
+                                <af:gridCell id="gc37" width="20%">
+                                    <af:outputLabel value="No. of Days" id="ol36" inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc38" width="20%">
+                                    <af:outputLabel value="Rental" id="ol37" inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc39" width="20%">
+                                    <af:outputLabel value="Unbilled Freight" id="ol38"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc40" width="20%">
+                                    <af:outputLabel value="Damage" id="ol44" inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc41" width="20%">
+                                    <af:outputLabel value="Total" id="ol45" inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow id="gr23" marginTop="5px"
+                                        binding="#{pageFlowScope.ViewRentalsBean.popupRowsBnd}">
+                                <af:gridCell id="gc42" width="20%">
+                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.noOfDays}"
+                                                    id="ol46" partialTriggers="id2 id4 it11 it13"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc43" width="20%">
+                                    <af:panelGroupLayout id="pgl8">
+                                        <af:outputText value="$" id="ot1"/>
+                                        <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.rental}"
+                                                        id="ol47" partialTriggers="id2 id4 it11 it13"
+                                                        inlineStyle="font-family:Helvetica;"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc44" width="20%">
+                                    <af:outputText value="$" id="ot2"/>
+                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.unbilledFreight}"
+                                                    id="ol48" partialTriggers="id2 id4 it11 it13"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc45" width="20%">
+                                    <af:outputText value="$" id="ot3"/>
+                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.damage}"
+                                                    id="ol49" partialTriggers="id2 id4 it11 it13"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc46" width="20%">
+                                    <af:outputText value="$" id="ot4"/>
+                                    <af:outputLabel value="#{pageFlowScope.ViewRentalsBean.updateReturnRentalRec.total}"
+                                                    id="ol50" partialTriggers="id2 id4 it11 it13"
+                                                    inlineStyle="font-family:Helvetica;"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                        <af:panelGroupLayout id="pgl16" layout="horizontal" halign="end" valign="bottom">
+                            <af:button text="Apply" id="b2"
+                                       action="#{pageFlowScope.ViewRentalsBean.applyReturnRentalsUpdAction}"
+                                       partialTriggers="t2"/>
+                            <af:spacer width="6"/>
+                            <af:button text="Apply and Bill" id="b13"
+                                       action="#{pageFlowScope.ViewRentalsBean.applyBillReturnRentalsUpdAction}"
+                                       partialTriggers="t2"/>
+                            <af:spacer width="6"/>
+                            <af:spacer width="6"/>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                </af:dialog>
+                <af:setPropertyListener from="#{source.attributes.status}" to="#{viewScope.status}" type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.rentalLineId}" to="#{viewScope.rentalLineId}"
+                                        type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.startDate}" to="#{viewScope.startDate}"
+                                        type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.returnDate}" to="#{viewScope.returnDate}"
+                                        type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.dailyRate}" to="#{viewScope.dailyRate}"
+                                        type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.damage}" to="#{viewScope.damage}" type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.noOfDays}" to="#{viewScope.noOfDays}"
+                                        type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.rental}" to="#{viewScope.rental}" type="popupFetch"/>
+                <af:setPropertyListener from="#{source.attributes.unbilledFreight}" to="#{viewScope.unbilledFreight}"
+                                        type="popupFetch"/>
+            </af:popup>
+        </af:form>
+    </af:document>
+</f:view>

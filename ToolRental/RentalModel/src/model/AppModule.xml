@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="model.AppModuleImpl"
+  DefClass="model.AppModuleDefImpl"
+  ComponentInterface="model.common.AppModule">
+  <DesignTime>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="PendingRentalsVView1"
+    ViewObjectName="model.PendingRentalsVView"/>
+  <ViewUsage
+    Name="ReturnedRentalsVView1"
+    ViewObjectName="model.ReturnedRentalsVView"/>
+  <ViewUsage
+    Name="ActiveRentalsVView1"
+    ViewObjectName="model.ActiveRentalsVView"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="refreshPendingRentalView"
+      MethodName="refreshPendingRentalView">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PendingRentalsV"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PENDING_RENTALS_V"
+  AliasName="PendingRentalsV"
+  BindingStyle="OracleName"
+  RowClass="model.PendingRentalsVImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="OrderHeader"
+    Precision="255"
+    ColumnName='"Order_Header"'
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerName"
+    Precision="255"
+    ColumnName='"Customer_Name"'
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sku"
+    Precision="255"
+    ColumnName="SKU"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NeedByDate"
+    ColumnName='"need_by_date"'
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="EstimatedShipDate"
+    ColumnName='"estimated_ship_date"'
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CityState"
+    Precision="511"
+    ColumnName='"city_state"'
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="511"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Salesrep"
+    Precision="255"
+    ColumnName="SALESREP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Valid"
+    Precision="3"
+    ColumnName='"valid"'
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Rental"
+    Precision="255"
+    ColumnName='"Rental"'
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PENDING_RENTALS_V"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="PendingrentalsvPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PENDINGRENTALSV_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.PendingRentalsV.OrderHeader"/>
+      <Item Value="model.PendingRentalsV.CustomerName"/>
+      <Item Value="model.PendingRentalsV.Sku"/>
+      <Item Value="model.PendingRentalsV.NeedByDate"/>
+      <Item Value="model.PendingRentalsV.EstimatedShipDate"/>
+      <Item Value="model.PendingRentalsV.CityState"/>
+      <Item Value="model.PendingRentalsV.Salesrep"/>
+      <Item Value="model.PendingRentalsV.Valid"/>
+      <Item Value="model.PendingRentalsV.Rental"/>
+    </AttrArray>
+  </Key>
+</Entity>
